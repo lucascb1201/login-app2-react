@@ -2,10 +2,6 @@
 
 A simple login app built with React, TypeScript, Vite, and Styled Components.
 
-## Demo
-
-Check out the demo at https://login-app-react.vercel.app/
-
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
