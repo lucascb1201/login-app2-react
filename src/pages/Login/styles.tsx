@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  width: 1000px;
+export const Container = styled.div<{isMobile: boolean}>`
+  width: ${ (props) => props.isMobile ? "400px" : "1000px"};
   height: 700px;
   background: transparent;
   margin: 0 auto;
@@ -10,11 +10,11 @@ export const Container = styled.div`
 
 
 // LOGIN CONTAINER
-export const LoginContainer = styled.div`
+export const LoginContainer = styled.div<{isMobile: boolean}>`
   background: #FFF;
   display: flex;
   flex: 1;
-  border-radius: 1em 0 0 1em;
+  border-radius: ${ (props) => props.isMobile ? "1em" : "1em 0 0 1em"};
   padding: 30px;
   flex-direction: column;
 `;

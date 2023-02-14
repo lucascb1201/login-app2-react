@@ -2,8 +2,18 @@ import { Ball, BannerContainer, Blotter, BtnColored, BtnNormal, Container, Input
 import { VscCircleLargeFilled } from 'react-icons/vsc';
 import { BiCopyright } from 'react-icons/bi';
 import { FcGoogle } from 'react-icons/fc';
+import { useEffect, useState } from "react";
 
 const Login = () => {
+
+  const [isMobile, setIsMobile] = useState(false);
+  const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    console.log("width", window.innerWidth);
+    window.addEventListener('resize', () => setWidth(window.innerWidth));
+    setIsMobile(window.innerWidth < 760);
+  }, [window.innerWidth]);
 
 
   return (
@@ -12,8 +22,8 @@ const Login = () => {
       display: "flex",
       alignItems: "center"
     }}>
-      <Container>
-        <LoginContainer>
+      <Container isMobile={isMobile}>
+        <LoginContainer isMobile={isMobile}>
           <div style={{
             display: "flex",
             alignItems: "center",
@@ -22,7 +32,7 @@ const Login = () => {
           </div>
           <LoginForm>
             <div style={{
-              width: "70%",
+              width: ( isMobile ? "100%" : "70%" ),
               height: "fit-content",
             }}>
               <h2 style={{ fontWeight: "bold" }}>
@@ -72,10 +82,13 @@ const Login = () => {
             <BiCopyright style={{ marginRight: 5 }} /> LCB UI 2077
           </div>
         </LoginContainer>
-        <BannerContainer>
-          <Ball />
-          <Blotter />
-        </BannerContainer>
+        {
+        !isMobile && (
+          <BannerContainer>
+            <Ball />
+            <Blotter />
+          </BannerContainer>
+        )}
       </Container>
     </div>
   );
