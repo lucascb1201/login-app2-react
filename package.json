@@ -1,6 +1,7 @@
 {
   "name": "login-app2",
   "private": true,
+  "author": "Lucas Barbosa"
   "version": "0.0.0",
   "type": "module",
   "scripts": {
